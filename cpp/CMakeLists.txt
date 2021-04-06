@@ -66,14 +66,15 @@ install(TARGETS TACE DESTINATION bin)
 
 option(MAKE_PYTHON_WRAPPER "Use python wrapper" ON)
 if(MAKE_PYTHON_WRAPPER)
-	find_package (Python COMPONENTS Development)
+	find_package (Python 3.7.6 EXACT REQUIRED COMPONENTS Development)
+	# find_package (Python COMPONENTS Development)
 	# message(${Python_LIBRARIES})
 	# message(${Python_INCLUDE_DIRS})
 	
 	include_directories(${Python_INCLUDE_DIRS})
 
-	set(Boost_USE_STATIC_LIBS ON)
-	# set(Boost_USE_STATIC_LIBS OFF)
+	# set(Boost_USE_STATIC_LIBS ON)
+	set(Boost_USE_STATIC_LIBS OFF)
 	set(Boost_USE_MULTITHREADED ON)
 	set(Boost_USE_STATIC_RUNTIME OFF)
 	find_package(Boost COMPONENTS ${_BOOST_PYTHON_LIB} ${_BOOST_NUMPY_LIB} REQUIRED)
