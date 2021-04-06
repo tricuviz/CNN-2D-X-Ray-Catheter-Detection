@@ -74,17 +74,16 @@ class FluoroExtraction(object):
 		kernelSize = 3
 		nbConvPerLayer = [2, 2, 2, 2, 2, 2, 2]
 		nbDeconvPerLayer = [2, 2, 2, 2, 2, 2]
-		
+
 		if IS_CHANNELS_FIRST == True:
 			shape_input = (nbUsedChannel, SIZE_Y, SIZE_X)
 		else:
 			shape_input = (SIZE_Y, SIZE_X, nbUsedChannel)
 
-		_self.m_Model = nnets.DefineDeepUVNet(shape_input, _nbFilters=nbStartFilter, _kernelSize=kernelSize \
-			, _convPerLevel=nbConvPerLayer, _upConvPerLevel=nbDeconvPerLayer, _optimizer=optimizer)
-		print("input " + str(_self.m_Model.get_input_shape_at(0)) + " output " + str(_self.m_Model.get_output_shape_at(0)))
-		print(len(_self.m_Model.layers))
-		# _self.m_Model.summary()
+		_self.m_Model = nnets.DefineDeepUVNet(shape_input, _nbFilters=nbStartFilter, _kernelSize=kernelSize, _convPerLevel=nbConvPerLayer, _upConvPerLevel=nbDeconvPerLayer, _optimizer=optimizer)
+		# print("input " + str(_self.m_Model.get_input_shape_at(0)) + " output " + str(_self.m_Model.get_output_shape_at(0)))
+		# print(len(_self.m_Model.layers))
+		print(_self.m_Model.summary())
 		
 		if _weightsFile is not None:
 			_self.m_Model.load_weights(_weightsFile)
