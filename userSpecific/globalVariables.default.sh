@@ -8,7 +8,7 @@ _CMAKE=cmake
 # name of the compiler using cmake syntax
 _COMPILER_NAME="Unix Makefiles"
 
-_BOOST_SRC_DIR=/usr
+_BOOST_SRC_DIR=/usr/local/include/boost/
 _BOOST_PYTHON_LIB=python37
 _BOOST_NUMPY_LIB=numpy37
 
